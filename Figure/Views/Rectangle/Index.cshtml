@@ -1,0 +1,56 @@
+﻿@model List<Rectangle>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Lista prostokatow</h1>
+
+<a class="btn-lg" asp-area="" asp-controller="Rectangle" asp-action="Create">Dodaj</a>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(a => a[0].sideA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(a => a[0].MeasureA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(a => a[0].sideB)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(a => a[0].MeasureB)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(a => a[0].Created)
+                </th>
+                <th>
+                    Akcje
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr>
+
+                    <td>@item.sideA</td>
+                    <td>@item.MeasureA</td>
+                    <td>@item.sideB</td>
+                    <td>@item.MeasureB</td>
+                    <td>@item.Created</td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Result" asp-route-id="@item.Id">Pokaż pole powierzchni</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

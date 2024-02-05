@@ -1,0 +1,38 @@
+﻿@model Figure.Models.Rectangle
+
+<h1>Dodaj nowy prostokąt</h1>
+
+<form asp-action="Create" asp-controller="Rectangle" method="post">
+
+    <div class="mb-3">
+        <label asp-for="sideA"></label>
+        <input class="form-control" asp-for="sideA" />
+        <span class="text-danger" asp-validation-for="sideA"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="sideB"></label>
+        <input class="form-control" asp-for="sideB" />
+        <span class="text-danger" asp-validation-for="sideB"></span>
+    </div>    
+
+    
+    <div class="mb-3">
+        <label asp-for="MeasureA"></label>
+        <select class="form-control" asp-for="MeasureA" asp-items="@Html.GetEnumSelectList<Measure>()"></select>
+        <span class="text-danger" asp-validation-for="MeasureA"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MeasureB"></label>
+        <select class="form-control" asp-for="MeasureB" asp-items="@Html.GetEnumSelectList<Measure>()"></select>
+        <span class="text-danger" asp-validation-for="MeasureB"></span>
+    </div>
+
+    
+
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Oblicz</button>
+    </div>
+
+</form>
